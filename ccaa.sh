@@ -59,8 +59,8 @@ function install_aria2(){
 	#yum -y update
 	#安装aria2静态编译版本，来源于https://github.com/q3aql/aria2-static-builds/
 	wget -c ${aria2_url}
-	tar jxvf aria2-1.35.0-linux-gnu-64bit-build1.tar.bz2
-	cd aria2-1.35.0-linux-gnu-64bit-build1
+	tar jxvf aria2-1.36.0-linux-gnu-64bit-build1.tar.bz2
+	cd aria2-1.36.0-linux-gnu-64bit-build1
 	make install
 	cd
 }
