@@ -89,6 +89,8 @@ function dealconf(){
 	touch /var/log/aria2.log
 	#upbt增加执行权限
 	chmod +x /etc/ccaa/upbt.sh
+	#ccaa_start增加执行权限
+	chmod +x /etc/ccaa/ccaa_start.sh
 	chmod +x ccaa-master/ccaa
 	cp ccaa-master/ccaa /usr/sbin
 	cd
