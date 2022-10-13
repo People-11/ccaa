@@ -25,7 +25,7 @@
 一键安装脚本（使用root用户）：
 ```bash
 #海外
-bash <(curl -Lsk https://raw.githubusercontent.com/helloxz/spb512/master/ccaa.sh)
+bash <(curl -Lsk https://raw.githubusercontent.com/spb512/ccaa/master/ccaa.sh)
 #国内
 bash <(curl -Lsk https://raw.githubusercontent.com/helloxz/ccaa/master/ccaa.sh) cdn
 ```
