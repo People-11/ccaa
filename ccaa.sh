@@ -210,6 +210,8 @@ function setting(){
 
 	#注册服务
 	add_service
+	#设置开机或重启自启服务
+	systemctl enable ccaa.service
 
 	echo '-------------------------------------------------------------'
 	echo "大功告成，请访问: http://${osip}:6080/"

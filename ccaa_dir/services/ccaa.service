@@ -1,0 +1,9 @@
+[Unit]
+Description=ccaa
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/ccaa start
+
+[Install]
+WantedBy=multi-user.target
