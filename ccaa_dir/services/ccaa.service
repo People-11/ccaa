@@ -3,6 +3,7 @@ Description=ccaa
 After=network.target
 
 [Service]
+Type=forking
 ExecStart=/etc/ccaa/ccaa_start.sh
 
 [Install]
