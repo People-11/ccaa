@@ -14,11 +14,13 @@ if [ $1 = 'arm' ]
 	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-arm64-filebrowser.tar.gz'
 	master_url='https://github.com/spb512/ccaa/archive/master.zip'
 	ccaa_web_url='http://soft.xiaoz.top/linux/ccaa_web.tar.gz'
+	flag='arm'
 	else
 	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-64bit-build1.tar.bz2'
 	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-amd64-filebrowser.tar.gz'
 	master_url='https://github.com/spb512/ccaa/archive/master.zip'
 	ccaa_web_url='http://soft.xiaoz.org/linux/ccaa_web.tar.gz'
+	flag='amd'
 fi
 
 #安装前的检查
@@ -59,7 +61,7 @@ function install_aria2(){
 	#yum -y update
 	#安装aria2静态编译版本，来源于https://github.com/q3aql/aria2-static-builds/
 	wget -c ${aria2_url}
-	if [ $1 = 'arm' ]
+	if [ ${flag} = 'arm' ]
 		then
 		tar jxvf aria2-1.36.0-linux-gnu-arm-rbpi-build1.tar.bz2
 		cd aria2-1.36.0-linux-gnu-arm-rbpi-build1
@@ -77,7 +79,7 @@ function install_file_browser(){
 	#下载File Browser
 	wget ${filebrowser_url}
 	#解压
-	if [ $1 = 'arm' ]
+	if [ ${flag} = 'arm' ]
 		then
 		tar -zxvf linux-arm64-filebrowser.tar.gz
 		else
