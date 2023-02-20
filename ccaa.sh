@@ -13,13 +13,13 @@ if [ $1 = 'arm' ]
 	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-arm-rbpi-build1.tar.bz2'
 	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-arm64-filebrowser.tar.gz'
 	master_url='https://github.com/spb512/ccaa/archive/master.zip'
-	ccaa_web_url='https://github.com/spb512/ccaa/releases/download/untagged-8fd6cff5a2fb1afb260c/ccaa_web.tar.gz'
+	ccaa_web_url='http://soft.xiaoz.org/linux/ccaa_web.tar.gz'
 	flag='arm'
 	else
 	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-64bit-build1.tar.bz2'
 	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-amd64-filebrowser.tar.gz'
 	master_url='https://github.com/spb512/ccaa/archive/master.zip'
-	ccaa_web_url='https://github.com/spb512/ccaa/releases/download/untagged-8fd6cff5a2fb1afb260c/ccaa_web.tar.gz'
+	ccaa_web_url='http://soft.xiaoz.org/linux/ccaa_web.tar.gz'
 	flag='amd'
 fi
 
