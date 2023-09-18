@@ -11,15 +11,15 @@ export PATH
 if [ $1 = 'arm' ]
 	then
 	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-arm-rbpi-build1.tar.bz2'
-	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-arm64-filebrowser.tar.gz'
-	master_url='https://github.com/spb512/ccaa/archive/master.zip'
-	ccaa_web_url='http://soft.xiaoz.org/linux/ccaa_web.tar.gz'
+	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.25.0/linux-arm64-filebrowser.tar.gz'
+	master_url='https://github.com/People-11/ccaa/archive/master.zip'
+	ccaa_web_url='https://github.com/People-11/ccaa/raw/master/ccaa_web'
 	flag='arm'
 	else
 	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-64bit-build1.tar.bz2'
-	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-amd64-filebrowser.tar.gz'
-	master_url='https://github.com/spb512/ccaa/archive/master.zip'
-	ccaa_web_url='http://soft.xiaoz.org/linux/ccaa_web.tar.gz'
+	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.25.0/linux-amd64-filebrowser.tar.gz'
+	master_url='https://github.com/People-11/ccaa/archive/master.zip'
+	ccaa_web_url='https://github.com/People-11/ccaa/raw/master/ccaa_web'
 	flag='amd'
 fi
 
@@ -208,20 +208,15 @@ function setting(){
 	
 	#安装AriaNg
 	wget ${ccaa_web_url}
-	tar -zxvf ccaa_web.tar.gz
 	cp ccaa_web /usr/sbin/
 	chmod +x /usr/sbin/ccaa_web
 
 	#启动服务
-	nohup sudo -u ccaa aria2c --conf-path=/etc/ccaa/aria2.conf > /var/log/aria2.log 2>&1 &
+	nice -n -10 aria2c --conf-path=/etc/ccaa/aria2.conf > /var/log/aria2.log 2>&1 &
 	#nohup caddy -conf="/etc/ccaa/caddy.conf" > /etc/ccaa/caddy.log 2>&1 &
-	nohup sudo -u ccaa /usr/sbin/ccaa_web > /var/log/ccaa_web.log 2>&1 &
+	/usr/sbin/ccaa_web > /var/log/ccaa_web.log 2>&1 &
 	#运行filebrowser
-	nohup sudo -u ccaa filebrowser -c /etc/ccaa/config.json > /var/log/fbrun.log 2>&1 &
-
-	#重置权限
-	chown -R ccaa:ccaa /etc/ccaa/
-	chown -R ccaa:ccaa ${downpath}
+	nice -n -10 filebrowser -c /etc/ccaa/config.json > /var/log/fbrun.log 2>&1 &
 
 	#注册服务
 	add_service
