@@ -4,7 +4,9 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStart=/etc/ccaa/ccaa_start.sh
+ExecStart=/usr/sbin/ccaa start
+ExecStop=/usr/sbin/ccaa stop
+ExecReload=/usr/sbin/ccaa restart
 
 [Install]
 WantedBy=multi-user.target
