@@ -53,7 +53,6 @@ rm -rf /usr/bin/aria2c
 rm -rf aria2-1.*
 rm -rf AriaNg*
 rm -rf /usr/share/man/man1/aria2c.1
-rm -rf /etc/ssl/certs/ca-certificates.crt
 rm -rf /etc/systemd/system/aria2.service
 rm -rf /etc/systemd/system/ccaa_web.service
 rm -rf /etc/systemd/system/filebrowser.service
