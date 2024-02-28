@@ -10,13 +10,13 @@ export PATH
 #设备类型设置
 if [ $1 = 'arm' ]
 	then
-	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-arm-rbpi-build1.tar.bz2'
+	aria2_url='https://github.com/abcfy2/aria2-static-build/releases/download/1.37.0/aria2-arm-linux-musleabi_static.zip'
 	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.27.0/linux-arm64-filebrowser.tar.gz'
 	master_url='https://github.com/People-11/ccaa/archive/master.zip'
 	ccaa_web_url='https://github.com/People-11/ccaa/raw/master/ccaa_web'
 	flag='arm'
 	else
-	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-64bit-build1.tar.bz2'
+	aria2_url='https://github.com/abcfy2/aria2-static-build/releases/download/1.37.0/aria2-x86_64-linux-musl_static.zip'
 	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.27.0/linux-amd64-filebrowser.tar.gz'
 	master_url='https://github.com/People-11/ccaa/archive/master.zip'
 	ccaa_web_url='https://github.com/People-11/ccaa/raw/master/ccaa_web'
@@ -63,13 +63,14 @@ function install_aria2(){
 	wget -c ${aria2_url}
 	if [ ${flag} = 'arm' ]
 		then
-		tar jxvf aria2-1.36.0-linux-gnu-arm-rbpi-build1.tar.bz2
-		cd aria2-1.36.0-linux-gnu-arm-rbpi-build1
+		unzip aria2-arm-linux-musleabi_static.zip
+		cd aria2-arm-linux-musleabi_static
 		else
-		tar jxvf aria2-1.36.0-linux-gnu-64bit-build1.tar.bz2
-		cd aria2-1.36.0-linux-gnu-64bit-build1
+		unzip aria2-x86_64-linux-musl_static.zip
+		cd aria2-x86_64-linux-musl_static
 	fi
-	make install
+	cp aria2c /usr/bin/
+	chmod +x aria2c
 	cd
 }
 
