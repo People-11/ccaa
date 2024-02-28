@@ -28,11 +28,11 @@ function del_post() {
 		firewall-cmd --reload
 	elif [ -e "/etc/ufw/before.rules" ]
 	then
-		sudo ufw delete 6080/tcp
-		sudo ufw delete 6081/tcp
-		sudo ufw delete 6800/tcp
-		sudo ufw delete 6998/tcp
-		sudo ufw delete 51413/tcp
+		sudo ufw delete allow 6080/tcp
+		sudo ufw delete allow 6081/tcp
+		sudo ufw delete allow 6800/tcp
+		sudo ufw delete allow 6998/tcp
+		sudo ufw delete allow 51413/tcp
 	fi
 }
 
