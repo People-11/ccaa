@@ -98,6 +98,7 @@ function dealconf(){
 	unzip master.zip
 	#复制CCAA核心目录
 	mv ccaa-master/ccaa_dir /etc/ccaa
+	chmod 777 /etc/ccaa
 	#创建aria2日志文件
 	touch /var/log/aria2.log
 	#upbt增加执行权限
