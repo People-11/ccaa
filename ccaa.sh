@@ -127,39 +127,11 @@ function chk_firewall(){
 		firewall-cmd --reload
 	elif [ -e "/etc/ufw/before.rules" ]
 	then
-		sudo ufw allow 6080/tcp
-		sudo ufw allow 6081/tcp
-		sudo ufw allow 6800/tcp
-		sudo ufw allow 6998/tcp
-		sudo ufw allow 51413/tcp
-	fi
-}
-#删除端口
-function del_post() {
-	if [ -e "/etc/sysconfig/iptables" ]
-	then
-		sed -i '/^.*6080.*/'d /etc/sysconfig/iptables
-		sed -i '/^.*6081.*/'d /etc/sysconfig/iptables
-		sed -i '/^.*6800.*/'d /etc/sysconfig/iptables
-		sed -i '/^.*6998.*/'d /etc/sysconfig/iptables
-		sed -i '/^.*51413.*/'d /etc/sysconfig/iptables
-		service iptables save
-		service iptables restart
-	elif [ -e "/etc/firewalld/zones/public.xml" ]
-	then
-		firewall-cmd --zone=public --remove-port=6080/tcp --permanent
-		firewall-cmd --zone=public --remove-port=6081/tcp --permanent
-		firewall-cmd --zone=public --remove-port=6800/tcp --permanent
-		firewall-cmd --zone=public --remove-port=6998/tcp --permanent
-		firewall-cmd --zone=public --remove-port=51413/tcp --permanent
-		firewall-cmd --reload
-	elif [ -e "/etc/ufw/before.rules" ]
-	then
-		sudo ufw delete 6080/tcp
-		sudo ufw delete 6081/tcp
-		sudo ufw delete 6800/tcp
-		sudo ufw delete 6998/tcp
-		sudo ufw delete 51413/tcp
+		ufw allow 6080/tcp
+		ufw allow 6081/tcp
+		ufw allow 6800/tcp
+		ufw allow 6998/tcp
+		ufw allow 51413/tcp
 	fi
 }
 #添加服务
