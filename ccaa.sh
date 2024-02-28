@@ -11,13 +11,13 @@ export PATH
 if [ $1 = 'arm' ]
 	then
 	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-arm-rbpi-build1.tar.bz2'
-	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.25.0/linux-arm64-filebrowser.tar.gz'
+	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.27.0/linux-arm64-filebrowser.tar.gz'
 	master_url='https://github.com/People-11/ccaa/archive/master.zip'
 	ccaa_web_url='https://github.com/People-11/ccaa/raw/master/ccaa_web'
 	flag='arm'
 	else
 	aria2_url='https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-64bit-build1.tar.bz2'
-	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.25.0/linux-amd64-filebrowser.tar.gz'
+	filebrowser_url='https://github.com/filebrowser/filebrowser/releases/download/v2.27.0/linux-amd64-filebrowser.tar.gz'
 	master_url='https://github.com/People-11/ccaa/archive/master.zip'
 	ccaa_web_url='https://github.com/People-11/ccaa/raw/master/ccaa_web'
 	flag='amd'
@@ -188,7 +188,7 @@ function setting(){
 	#如果下载路径为空，设置默认下载路径
 	if [ -z "${downpath}" ]
 	then
-		downpath='/data/ccaaDown'
+		downpath='/downloads/realdownloads'
 	fi
 
 	#获取ip
