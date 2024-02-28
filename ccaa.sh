@@ -195,6 +195,7 @@ function setting(){
 	
 	#执行替换操作
 	mkdir -p ${downpath}
+	chmod 777 ${downpath}
 	sed -i "s%dir=%dir=${downpath}%g" /etc/ccaa/aria2.conf
 	sed -i "s/rpc-secret=/rpc-secret=${secret}/g" /etc/ccaa/aria2.conf
 	#替换filebrowser读取路径
