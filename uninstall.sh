@@ -40,7 +40,6 @@ function del_post() {
 kill -9 $(pgrep 'aria2c')
 kill -9 $(pgrep 'ccaa_web')
 kill -9 $(pgrep 'filebrowser')
-kill -9 $(pgrep 'caddy')
 systemctl disable aria2
 systemctl disable ccaa_web
 systemctl disable filebrowser
@@ -49,7 +48,6 @@ systemctl disable ccaa.service
 #删除文件
 rm -rf /etc/ccaa
 rm -rf /usr/sbin/ccaa_web
-rm -rf /usr/sbin/ccaa
 rm -rf /usr/sbin/ccaa
 rm -rf /usr/bin/aria2c
 rm -rf aria2-1.*
@@ -69,10 +67,6 @@ rm -rf /var/log/aria2.log
 rm -rf /var/log/ccaa_web.log
 rm -rf /var/log/fbrun.log
 rm -rf /var/log/filebrowser.log
-
-#删除用户和用户组
-userdel ccaa
-groupdel ccaa
 
 #删除端口
 del_post

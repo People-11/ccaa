@@ -41,18 +41,15 @@ function check(){
 function setout(){
 	if [ -e "/usr/bin/yum" ]
 	then
-		yum -y install curl gcc make bzip2 gzip wget unzip tar
+		yum -y install curl gcc wget unzip tar
 	else
 		#更新软件，否则可能make命令无法安装
 		sudo apt-get update
-		sudo apt-get install -y curl make bzip2 gzip wget unzip sudo
+		sudo apt-get install -y curl wget unzip sudo
 	fi
 	#创建临时目录
 	cd
 	mkdir ./ccaa_tmp
-	#创建用户和用户组
-	groupadd ccaa
-	useradd -M -g ccaa ccaa -s /sbin/nologin
 }
 #安装Aria2
 function install_aria2(){
