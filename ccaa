@@ -20,9 +20,9 @@ fi
 
 case $1 in
 	'start')
-		nohup sudo -u ccaa aria2c --conf-path=/etc/ccaa/aria2.conf > /var/log/aria2.log 2>&1 &
-		nohup sudo -u ccaa /usr/sbin/ccaa_web > /var/log/ccaa_web.log 2>&1 &
-		nohup sudo -u ccaa filebrowser -c /etc/ccaa/config.json > /var/log/fbrun.log 2>&1 &
+		nohup sudo aria2c --conf-path=/etc/ccaa/aria2.conf > /var/log/aria2.log 2>&1 &
+		nohup sudo ccaa_web > /var/log/ccaa_web.log 2>&1 &
+		nohup sudo filebrowser -c /etc/ccaa/config.json > /var/log/fbrun.log 2>&1 &
 		exit
 	;;
 	'stop')
@@ -34,9 +34,9 @@ case $1 in
 		kill -SIGINT ${aria2pid}
 		kill -SIGINT ${ccaa_web_pid}
 		kill -SIGINT ${filebrowser_pid}
-		nohup sudo -u ccaa aria2c --conf-path=/etc/ccaa/aria2.conf > /var/log/aria2.log 2>&1 &
-		nohup sudo -u ccaa /usr/sbin/ccaa_web > /var/log/ccaa_web.log 2>&1 &
-		nohup sudo -u ccaa filebrowser -c /etc/ccaa/config.json > /var/log/fbrun.log 2>&1 &
+		nohup sudo aria2c --conf-path=/etc/ccaa/aria2.conf > /var/log/aria2.log 2>&1 &
+		nohup sudo ccaa_web > /var/log/ccaa_web.log 2>&1 &
+		nohup sudo filebrowser -c /etc/ccaa/config.json > /var/log/fbrun.log 2>&1 &
 		exit;
 	;;
 	'status')
